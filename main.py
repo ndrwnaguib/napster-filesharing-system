@@ -14,7 +14,7 @@ from peer.peer import *
 from validation import *
 
 decision = raw_input("1 - Run Server\n"
-                     "2 - Run Client\n"
+                     "2 - Run Peer\n"
                      "Please select whichever you want.\n")
 if decision == "1":
     HOST = raw_input("Please enter the IP of the server in this format XXX.XXX.XXX.XXX. Enter 0 to run as localhost\n")
@@ -28,13 +28,13 @@ if decision == "1":
         print "Invalid configurations for the server."
 
 elif decision == "2":
+    print "Welcome Client.\n"
     PORT = input("Please enter server's port number\n")
     HOST = raw_input(
         "Please enter servers IP number in the following format XXX.XXX.XXX.XXX and 0 for localhost\n")
     valid_boolean, valid_host, valid_port = validate_ip_port(PORT, HOST)
     if valid_boolean:
-        choice = raw_input("Welcome Client. Please select from the below two functions.\n"
-                           "1 - Search for a filename and download it.\n"
+        choice = raw_input("1 - Search for a filename and download it.\n"
                            "2 - Register to the indexing server.\n")
         if choice == "1":
             filename = raw_input("Please enter filename you want to search for.\n")
@@ -53,7 +53,7 @@ elif decision == "2":
         elif choice == "2":
             PEER_PORT = input("Please enter your port number\n")
             PEER_HOST = raw_input(
-                "Please enter servers IP number in the following format XXX.XXX.XXX.XXX and 0 for localhost\n")
+                "Please your IP number in the following format XXX.XXX.XXX.XXX and 0 for localhost\n")
             valid_boolean, valid_host, valid_port = validate_ip_port(PEER_PORT, PEER_HOST)
             if valid_boolean:
                 peer = Peer(valid_port, valid_host, PORT, HOST)
