@@ -1,0 +1,10 @@
+OK = '1'
+ADD = '2'
+APPEND = '3'
+GETVALUE = '4'
+REGISTER = '5'
+STOP = '6'
+SEARCH = '7'
+DOWNLOAD = '8'
+HOST = 'localhost'
+PORT = 50014
