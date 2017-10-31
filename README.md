@@ -25,3 +25,5 @@ Major function of the peer: Register and Listen to clients that wants to downloa
 
 ### How-to
 
+### Notes
+    * *.pyc files are the compiled version of the code. You can just delete them.
