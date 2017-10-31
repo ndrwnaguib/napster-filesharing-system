@@ -13,7 +13,7 @@ from indexing_server.server import *  # -
 from peer.peer import *
 from validation import *
 
-decision = raw_input("1 - Run Server\n"
+decision = raw_input("1 - Run Indexing Server\n"
                      "2 - Run Peer\n"
                      "Please select whichever you want.\n")
 if decision == "1":

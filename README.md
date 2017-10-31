@@ -113,6 +113,11 @@ For the peer that is running waiting for requests the output is(Which has the ac
 Done sending
 ```
 Hopefully that illustrated how this project runs and overall idea of _Napster File-Sharing System_
-### Notes
 
-* ***.pyc** files are the compiled version of the code. You can just delete them and recompile the code.
+### Enhancements
+Possible enhancements to this project are:
+* Allow editing files for the registered peer.
+* Ping the requesting peer to calculate latency.
+* Assign the network bandwidth to each peer.
+### Issues
+Please for any code issues feel free to submit an issue to this repository and I will answer shortly
