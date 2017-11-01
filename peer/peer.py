@@ -65,10 +65,10 @@ class Peer:
         sock.close()
 
     def listen(self):
-        (conn, addr) = self.sock.accept()
-        print "[*] Got a connection from ", addr[0], ":", addr[1]
-        data = conn.recv(1024)
-        request = pickle.loads(data)  # unwrap the request
-        if request[0] == DOWNLOAD:
-            send_file(conn, request)
-
+        while True:
+            (conn, addr) = self.sock.accept()
+            print "[*] Got a connection from ", addr[0], ":", addr[1]
+            data = conn.recv(1024)
+            request = pickle.loads(data)  # unwrap the request
+            if request[0] == DOWNLOAD:
+                send_file(conn, request)
