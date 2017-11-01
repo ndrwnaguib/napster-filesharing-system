@@ -13,7 +13,7 @@ Peer-to-Peer(P2P) Technologies are being widely used for sharing the data betwee
 * Python 2.7 environment installed
 
 ### Design
-Entire project is design using Python 2.7 where I used some network programming concepts such as sockets, multi-threading for establishing connections between peers. Major components of this project are:
+Entire project is designed using Python 2.7 where I used some network programming concepts such as sockets, multi-threading for establishing connections between peers. Major components of this project are:
 * Indexing Server
 * Peer _( Which acts as client and a server )_
 
