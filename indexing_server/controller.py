@@ -17,11 +17,15 @@ def search(filename, list_of_files):
     """
     :type list_of_files: dict
     """
+    found = False
+    return_data = {}
     for key in list_of_files:
         print list_of_files.get(key)['shared_files']
         if filename in list_of_files.get(key)['shared_files']:
-            return [True, list_of_files.get(key)]
-    return [False, []]
+            if not found:
+                found = True
+            return_data[key] = list_of_files.get(key)
+    return found, return_data
 
 
 def register(conn, set_of_lists, peer_data_object=None):

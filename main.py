@@ -42,10 +42,9 @@ elif decision == "2":
                 peer = Peer(0, "", valid_port,
                             valid_host)  # We don't have to set port or host for peer as it is not going to listen
                 file_data = peer.search(filename, valid_host, valid_port)
-                download_it = show_result(file_data, filename)
+                peer_host, peer_port, download_it = show_result(file_data, filename)
                 if download_it:
-                    peer.download_file([DOWNLOAD, file_data[1]['shared_files_path'], filename],
-                                       file_data[1]['peer_host'], file_data[1]['peer_port'])
+                    peer.download_file([DOWNLOAD, filename], peer_host, peer_port)
                 else:
                     print "Okay thank you for using our system."
             else:
@@ -64,15 +63,15 @@ elif decision == "2":
                         REGISTERED_SUCCESSFULLY = peer.data_object.register
                         sharing_datetime = datetime.datetime.fromtimestamp(int(time.time())).strftime(
                             '%Y-%m-%d %H:%M:%S')
-                        data_object = dict(peer_port=valid_port, peer_host=valid_host, shared_files_path=PATH,
-                                           shared_files=shared_files, shared_at=sharing_datetime)
+                        data_object = dict(peer_port=valid_port, peer_host=valid_host, shared_files=shared_files,
+                                           shared_at=sharing_datetime)
                         if REGISTERED_SUCCESSFULLY:
                             DATA_INSERTED = peer.data_object.append_data(data_object)
                             if DATA_INSERTED:
                                 print "Congratulations you have been registered successfully.\n" \
                                       "[*] You will now be put to the listening state.\n" \
                                       "[*] Started listening on", valid_host, ":", valid_port
-                                peer.listen()  # block until you receive request
+                                peer.listen(PATH)  # block until you receive request
                             else:
                                 print "There was an error while inserting your data."
                     else:

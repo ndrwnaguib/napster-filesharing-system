@@ -82,14 +82,15 @@ Congratulations you have been registered successfully.
 [*] Started listening on localhost : 25000
 ```
 You are now blocked and waiting for another peers to request files to download. Now let's search for a file.
-We run _main.py_ one more time as a peer and we enter same configurations for the server and we get to the following output again.
+We run _main.py_ one more time as a peer and we enter same configurations for the server and we get to the following output again. 
+_(Case that only one peer has the file)_
 ```
 1 - Search for a filename and download it.
 2 - Register to the indexing server.
 1
 Please enter filename you want to search for.
 1.txt
-File 1.txt was found. Peer details are:
+File 1.txt was found in the following one or more peers. Peer/s details are::
 
 Peer port: 25000 
 
@@ -100,6 +101,35 @@ Shared file path: /path/to/this/project/peer/testing_files
 File shared at: 2017-10-31 20:27:41 
 
 Do you want to download it (Y/N): y
+Successfully get the file
+connection closed
+```
+_(Case that one or more peer has the file)_
+```
+File 6.txt was found in the following one or more peers. Peer/s details are:
+
+Peer ID: 1 
+
+Peer port: 25000 
+
+Peer host: localhost 
+
+File shared at: 2017-12-09 21:11:42 
+
+-------------------------------------
+Peer ID: 2 
+
+Peer port: 35000 
+
+Peer host: localhost 
+
+File shared at: 2017-12-09 21:11:53 
+
+-------------------------------------
+Do you want to download it (Y/N):
+y
+Please specify Peer ID
+1
 Successfully get the file
 connection closed
 ```

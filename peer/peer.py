@@ -30,7 +30,7 @@ class Peer:
         s.send(pickle.dumps(message))  # send some data
         downloads_dir_path = os.path.join(os.getcwd(),
                                           'peer')  # If you want to change it. Change the folder actual name
-        filename = message[2]  # requested filename from the server
+        filename = message[1]  # requested filename from the server
         with open(os.path.join(os.path.join(downloads_dir_path, 'downloads'), "downloaded_" + filename),
                   'wb') as file_to_write:
             while True:
@@ -64,11 +64,11 @@ class Peer:
         sock.send(pickle.dumps(data))  # send some data
         sock.close()
 
-    def listen(self):
+    def listen(self, PATH):
         while True:
             (conn, addr) = self.sock.accept()
             print "[*] Got a connection from ", addr[0], ":", addr[1]
             data = conn.recv(1024)
             request = pickle.loads(data)  # unwrap the request
             if request[0] == DOWNLOAD:
-                send_file(conn, request)
+                send_file(conn, request, PATH)
